@@ -16,7 +16,6 @@ pipeline {
         parallel(
           "sudo-list": {
             sh 'ls -al'
-            error 'Can\'t sudo.'
             
           },
           "user-pwd": {
