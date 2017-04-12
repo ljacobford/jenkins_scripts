@@ -11,7 +11,7 @@ pipeline {
         input(message: 'Do you want to start the job?', id: 'begin', ok: 'start')
       }
     }
-    stage('') {
+    stage('error') {
       steps {
         parallel(
           "sudo-list": {
@@ -25,6 +25,11 @@ pipeline {
             
           }
         )
+      }
+    }
+    stage('notify-complete') {
+      steps {
+        sh 'echo \'job finished\''
       }
     }
   }
