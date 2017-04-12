@@ -15,13 +15,12 @@ pipeline {
       steps {
         parallel(
           "sudo-list": {
-            sh 'sudo ls -al'
+            sh 'ls -al'
             error 'Can\'t sudo.'
             
           },
           "user-pwd": {
             sh 'pwd'
-            mail(subject: 'test-jenkins', body: 'This is a test from Jenkins', to: 'jacobfo@gmail.com')
             
           }
         )
